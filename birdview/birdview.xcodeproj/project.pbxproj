@@ -1,0 +1,361 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		729156DD17E07A86003BD6CF /* CameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 729156DC17E07A86003BD6CF /* CameraViewController.m */; };
+		72FCB8B617DF082A00F28E27 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72FCB8B517DF082A00F28E27 /* UIKit.framework */; };
+		72FCB8B817DF082A00F28E27 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72FCB8B717DF082A00F28E27 /* Foundation.framework */; };
+		72FCB8BA17DF082A00F28E27 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72FCB8B917DF082A00F28E27 /* CoreGraphics.framework */; };
+		72FCB8BC17DF082A00F28E27 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72FCB8BB17DF082A00F28E27 /* CoreData.framework */; };
+		72FCB8C217DF082A00F28E27 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 72FCB8C017DF082A00F28E27 /* InfoPlist.strings */; };
+		72FCB8C417DF082A00F28E27 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 72FCB8C317DF082A00F28E27 /* main.m */; };
+		72FCB8C817DF082A00F28E27 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 72FCB8C717DF082A00F28E27 /* AppDelegate.m */; };
+		72FCB8CA17DF082A00F28E27 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 72FCB8C917DF082A00F28E27 /* Default.png */; };
+		72FCB8CC17DF082B00F28E27 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 72FCB8CB17DF082A00F28E27 /* Default@2x.png */; };
+		72FCB8CE17DF082B00F28E27 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 72FCB8CD17DF082B00F28E27 /* Default-568h@2x.png */; };
+		72FCB8D117DF082B00F28E27 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 72FCB8CF17DF082B00F28E27 /* MainStoryboard.storyboard */; };
+		72FCB8D417DF082B00F28E27 /* birdview.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 72FCB8D217DF082B00F28E27 /* birdview.xcdatamodeld */; };
+		72FCB8D717DF082B00F28E27 /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72FCB8D617DF082B00F28E27 /* MasterViewController.m */; };
+		72FCB8DA17DF082B00F28E27 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72FCB8D917DF082B00F28E27 /* DetailViewController.m */; };
+		72FCB8E217DF08AD00F28E27 /* BirdSighting.m in Sources */ = {isa = PBXBuildFile; fileRef = 72FCB8E117DF08AD00F28E27 /* BirdSighting.m */; };
+		72FCB8E517DF0A4700F28E27 /* BridSightingDataController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72FCB8E417DF0A4700F28E27 /* BridSightingDataController.m */; };
+		72FCB8EB17DF248B00F28E27 /* AddSightingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72FCB8EA17DF248B00F28E27 /* AddSightingViewController.m */; };
+		72FCB8ED17DF3A1900F28E27 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72FCB8EC17DF3A1900F28E27 /* CoreLocation.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		729156DB17E07A86003BD6CF /* CameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraViewController.h; sourceTree = "<group>"; };
+		729156DC17E07A86003BD6CF /* CameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraViewController.m; sourceTree = "<group>"; };
+		72FCB8B217DF082A00F28E27 /* birdview.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = birdview.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		72FCB8B517DF082A00F28E27 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		72FCB8B717DF082A00F28E27 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		72FCB8B917DF082A00F28E27 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		72FCB8BB17DF082A00F28E27 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		72FCB8BF17DF082A00F28E27 /* birdview-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "birdview-Info.plist"; sourceTree = "<group>"; };
+		72FCB8C117DF082A00F28E27 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		72FCB8C317DF082A00F28E27 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		72FCB8C517DF082A00F28E27 /* birdview-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "birdview-Prefix.pch"; sourceTree = "<group>"; };
+		72FCB8C617DF082A00F28E27 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		72FCB8C717DF082A00F28E27 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		72FCB8C917DF082A00F28E27 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		72FCB8CB17DF082A00F28E27 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		72FCB8CD17DF082B00F28E27 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		72FCB8D017DF082B00F28E27 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
+		72FCB8D317DF082B00F28E27 /* birdview.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = birdview.xcdatamodel; sourceTree = "<group>"; };
+		72FCB8D517DF082B00F28E27 /* MasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MasterViewController.h; sourceTree = "<group>"; };
+		72FCB8D617DF082B00F28E27 /* MasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MasterViewController.m; sourceTree = "<group>"; };
+		72FCB8D817DF082B00F28E27 /* DetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
+		72FCB8D917DF082B00F28E27 /* DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		72FCB8E017DF08AD00F28E27 /* BirdSighting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BirdSighting.h; sourceTree = "<group>"; };
+		72FCB8E117DF08AD00F28E27 /* BirdSighting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BirdSighting.m; sourceTree = "<group>"; };
+		72FCB8E317DF0A4700F28E27 /* BridSightingDataController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BridSightingDataController.h; sourceTree = "<group>"; };
+		72FCB8E417DF0A4700F28E27 /* BridSightingDataController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BridSightingDataController.m; sourceTree = "<group>"; };
+		72FCB8E917DF248B00F28E27 /* AddSightingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddSightingViewController.h; sourceTree = "<group>"; };
+		72FCB8EA17DF248B00F28E27 /* AddSightingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddSightingViewController.m; sourceTree = "<group>"; };
+		72FCB8EC17DF3A1900F28E27 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		72FCB8AF17DF082A00F28E27 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				72FCB8ED17DF3A1900F28E27 /* CoreLocation.framework in Frameworks */,
+				72FCB8B617DF082A00F28E27 /* UIKit.framework in Frameworks */,
+				72FCB8B817DF082A00F28E27 /* Foundation.framework in Frameworks */,
+				72FCB8BA17DF082A00F28E27 /* CoreGraphics.framework in Frameworks */,
+				72FCB8BC17DF082A00F28E27 /* CoreData.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		72FCB8A917DF082A00F28E27 = {
+			isa = PBXGroup;
+			children = (
+				72FCB8EC17DF3A1900F28E27 /* CoreLocation.framework */,
+				72FCB8BD17DF082A00F28E27 /* birdview */,
+				72FCB8B417DF082A00F28E27 /* Frameworks */,
+				72FCB8B317DF082A00F28E27 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		72FCB8B317DF082A00F28E27 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				72FCB8B217DF082A00F28E27 /* birdview.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		72FCB8B417DF082A00F28E27 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				72FCB8B517DF082A00F28E27 /* UIKit.framework */,
+				72FCB8B717DF082A00F28E27 /* Foundation.framework */,
+				72FCB8B917DF082A00F28E27 /* CoreGraphics.framework */,
+				72FCB8BB17DF082A00F28E27 /* CoreData.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		72FCB8BD17DF082A00F28E27 /* birdview */ = {
+			isa = PBXGroup;
+			children = (
+				72FCB8C617DF082A00F28E27 /* AppDelegate.h */,
+				72FCB8C717DF082A00F28E27 /* AppDelegate.m */,
+				72FCB8CF17DF082B00F28E27 /* MainStoryboard.storyboard */,
+				72FCB8D517DF082B00F28E27 /* MasterViewController.h */,
+				72FCB8D617DF082B00F28E27 /* MasterViewController.m */,
+				72FCB8D817DF082B00F28E27 /* DetailViewController.h */,
+				72FCB8D917DF082B00F28E27 /* DetailViewController.m */,
+				72FCB8D217DF082B00F28E27 /* birdview.xcdatamodeld */,
+				72FCB8BE17DF082A00F28E27 /* Supporting Files */,
+				72FCB8E017DF08AD00F28E27 /* BirdSighting.h */,
+				72FCB8E117DF08AD00F28E27 /* BirdSighting.m */,
+				72FCB8E317DF0A4700F28E27 /* BridSightingDataController.h */,
+				72FCB8E417DF0A4700F28E27 /* BridSightingDataController.m */,
+				72FCB8E917DF248B00F28E27 /* AddSightingViewController.h */,
+				72FCB8EA17DF248B00F28E27 /* AddSightingViewController.m */,
+				729156DB17E07A86003BD6CF /* CameraViewController.h */,
+				729156DC17E07A86003BD6CF /* CameraViewController.m */,
+			);
+			path = birdview;
+			sourceTree = "<group>";
+		};
+		72FCB8BE17DF082A00F28E27 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				72FCB8BF17DF082A00F28E27 /* birdview-Info.plist */,
+				72FCB8C017DF082A00F28E27 /* InfoPlist.strings */,
+				72FCB8C317DF082A00F28E27 /* main.m */,
+				72FCB8C517DF082A00F28E27 /* birdview-Prefix.pch */,
+				72FCB8C917DF082A00F28E27 /* Default.png */,
+				72FCB8CB17DF082A00F28E27 /* Default@2x.png */,
+				72FCB8CD17DF082B00F28E27 /* Default-568h@2x.png */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		72FCB8B117DF082A00F28E27 /* birdview */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 72FCB8DD17DF082B00F28E27 /* Build configuration list for PBXNativeTarget "birdview" */;
+			buildPhases = (
+				72FCB8AE17DF082A00F28E27 /* Sources */,
+				72FCB8AF17DF082A00F28E27 /* Frameworks */,
+				72FCB8B017DF082A00F28E27 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = birdview;
+			productName = birdview;
+			productReference = 72FCB8B217DF082A00F28E27 /* birdview.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		72FCB8AA17DF082A00F28E27 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0460;
+				ORGANIZATIONNAME = Popcorn;
+			};
+			buildConfigurationList = 72FCB8AD17DF082A00F28E27 /* Build configuration list for PBXProject "birdview" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 72FCB8A917DF082A00F28E27;
+			productRefGroup = 72FCB8B317DF082A00F28E27 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				72FCB8B117DF082A00F28E27 /* birdview */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		72FCB8B017DF082A00F28E27 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				72FCB8C217DF082A00F28E27 /* InfoPlist.strings in Resources */,
+				72FCB8CA17DF082A00F28E27 /* Default.png in Resources */,
+				72FCB8CC17DF082B00F28E27 /* Default@2x.png in Resources */,
+				72FCB8CE17DF082B00F28E27 /* Default-568h@2x.png in Resources */,
+				72FCB8D117DF082B00F28E27 /* MainStoryboard.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		72FCB8AE17DF082A00F28E27 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				72FCB8C417DF082A00F28E27 /* main.m in Sources */,
+				72FCB8C817DF082A00F28E27 /* AppDelegate.m in Sources */,
+				72FCB8D417DF082B00F28E27 /* birdview.xcdatamodeld in Sources */,
+				72FCB8D717DF082B00F28E27 /* MasterViewController.m in Sources */,
+				72FCB8DA17DF082B00F28E27 /* DetailViewController.m in Sources */,
+				72FCB8E217DF08AD00F28E27 /* BirdSighting.m in Sources */,
+				72FCB8E517DF0A4700F28E27 /* BridSightingDataController.m in Sources */,
+				72FCB8EB17DF248B00F28E27 /* AddSightingViewController.m in Sources */,
+				729156DD17E07A86003BD6CF /* CameraViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		72FCB8C017DF082A00F28E27 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				72FCB8C117DF082A00F28E27 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		72FCB8CF17DF082B00F28E27 /* MainStoryboard.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				72FCB8D017DF082B00F28E27 /* en */,
+			);
+			name = MainStoryboard.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		72FCB8DB17DF082B00F28E27 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		72FCB8DC17DF082B00F28E27 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		72FCB8DE17DF082B00F28E27 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "birdview/birdview-Prefix.pch";
+				INFOPLIST_FILE = "birdview/birdview-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		72FCB8DF17DF082B00F28E27 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "birdview/birdview-Prefix.pch";
+				INFOPLIST_FILE = "birdview/birdview-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		72FCB8AD17DF082A00F28E27 /* Build configuration list for PBXProject "birdview" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				72FCB8DB17DF082B00F28E27 /* Debug */,
+				72FCB8DC17DF082B00F28E27 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		72FCB8DD17DF082B00F28E27 /* Build configuration list for PBXNativeTarget "birdview" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				72FCB8DE17DF082B00F28E27 /* Debug */,
+				72FCB8DF17DF082B00F28E27 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		72FCB8D217DF082B00F28E27 /* birdview.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				72FCB8D317DF082B00F28E27 /* birdview.xcdatamodel */,
+			);
+			currentVersion = 72FCB8D317DF082B00F28E27 /* birdview.xcdatamodel */;
+			path = birdview.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 72FCB8AA17DF082A00F28E27 /* Project object */;
+}
