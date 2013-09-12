@@ -12,13 +12,14 @@
 @synthesize name = _name;
 @synthesize location = _location;
 @synthesize date = _date;
-
--(id)initWithName:(NSString *)name location:(NSString *)location date:(NSDate *)date{
+@synthesize birdImgPath = _birdImgPath;
+-(id)initWithName:(NSString *)name location:(NSString *)location date:(NSDate *)date birdImgPath:(NSString *)birdImgPath{
     self = [super init];
     if(self){
         _name = name;
         _location = location;
         _date = date;
+        _birdImgPath = birdImgPath;
         return  self;
     }
     return  nil;

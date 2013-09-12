@@ -19,9 +19,9 @@
 @end
 
 @implementation MasterViewController
-@synthesize dataController = _dataController;
-@synthesize newMedia = _newMedia;
-@synthesize AddController = _AddController;
+@synthesize dataController;
+@synthesize newMedia;
+
 - (void)awakeFromNib
 {
     [super awakeFromNib];
@@ -29,12 +29,16 @@
 -(void)addSightinViewControllerDidCancel:(AddSightingViewController *)controller{
     [self dismissViewControllerAnimated:YES completion:NULL];
 }
--(void)addSightinViewControllerDidFinish:(AddSightingViewController *)controller name:(NSString *)name location:(NSString *)location{
-    if([name length]||[location length]){
-        [self.dataController addBirdSightingWithName:name location:location];
+-(void)addSightinViewControllerDidFinish:(AddSightingViewController *)controller name:(NSString *)name location:(NSString *)location birdImgPath:(NSString *)birdImgPath{
+    if([name length]||[location length]||[birdImgPath length]){
+        [self.dataController addBirdSightingWithName:name location:location birdNamePath:birdImgPath];
+        BirdSighting *newbird =[self.dataController objectInListAtIndex:[self.dataController countOfList]-1];
+        [self insertNewObject:self BirdInfo:newbird];
         [[self tableView] reloadData];
     }
     [self dismissViewControllerAnimated:YES completion:nil];
+    
+     
 }
 
 - (void)viewDidLoad
@@ -53,15 +57,18 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)insertNewObject:(id)sender
+- (void)insertNewObject:(id)sender BirdInfo:(BirdSighting *)BirdInfo
 {
-   /* NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
+    NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
     NSEntityDescription *entity = [[self.fetchedResultsController fetchRequest] entity];
     NSManagedObject *newManagedObject = [NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:context];
     
     // If appropriate, configure the new managed object.
     // Normally you should use accessor methods, but using KVC here avoids the need to add a custom class to the template.
-    [newManagedObject setValue:[NSDate date] forKey:@"timeStamp"];
+    [newManagedObject setValue:BirdInfo.name forKey:@"name"];
+    [newManagedObject setValue:BirdInfo.location forKey:@"location"];
+    [newManagedObject setValue:BirdInfo.date forKey:@"date"];
+    [newManagedObject setValue:BirdInfo.birdImgPath forKey:@"birdImgPath"];
     
     // Save the context.
     NSError *error = nil;
@@ -70,34 +77,34 @@
          // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development. 
         NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
         abort();
-    }*/
+    }
 }
 
 #pragma mark - Table View
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    //return [[self.fetchedResultsController sections] count];
+    return [[self.fetchedResultsController sections] count];
     //return  [self. ];
     //return [self.dataController countOfList];
-    return 1;
+    //return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    /*id <NSFetchedResultsSectionInfo> sectionInfo = [self.fetchedResultsController sections][section];
-    return [sectionInfo numberOfObjects];*/
+    id <NSFetchedResultsSectionInfo> sectionInfo = [self.fetchedResultsController sections][section];
+    return [sectionInfo numberOfObjects];
     //return [self.dataController countOfList];
     //return  0;
-    return [self.dataController countOfList];
+    //return [self.dataController countOfList];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    /*UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"BirdsightingCell" forIndexPath:indexPath];
     [self configureCell:cell atIndexPath:indexPath];
-    return cell;*/
-    static NSString *Celldentifier =@"BirdsightingCell";
+    return cell;
+    /*static NSString *Celldentifier =@"BirdsightingCell";
     static NSDateFormatter *formatter = nil;
     
     if(formatter == nil){
@@ -109,8 +116,41 @@
     BirdSighting *sightingAtIndex = [self.dataController objectInListAtIndex:indexPath.row];
     [[cell textLabel]setText:sightingAtIndex.name];
     [[cell detailTextLabel]setText:[formatter stringFromDate:(NSDate *)sightingAtIndex.date]];
-    return  cell;
+    
+    NSString *mediaurl = sightingAtIndex.birdImgPath;
+    
+    //
+    ALAssetsLibraryAssetForURLResultBlock resultblock = ^(ALAsset *myasset)
+    {
+        ALAssetRepresentation *rep = [myasset defaultRepresentation];
+        CGImageRef iref = [rep fullResolutionImage];
+        if (iref) {
+            UIImage *largeimage = [UIImage imageWithCGImage:iref];
+            [[cell imageView]setImage:largeimage];
+        }
+    };
+    
+    //
+    ALAssetsLibraryAccessFailureBlock failureblock  = ^(NSError *myerror)
+    {
+        NSLog(@"booya, cant get image - %@",[myerror localizedDescription]);
+    };
+    
+    if(mediaurl && [mediaurl length])
+    {
+        NSURL *asseturl = [NSURL URLWithString:mediaurl];
+        ALAssetsLibrary* assetslibrary = [[ALAssetsLibrary alloc] init] ;
+        [assetslibrary assetForURL:asseturl
+                       resultBlock:resultblock
+                      failureBlock:failureblock];
+    }
+
+    return  cell;*/
 }
+-(void)setImage:(NSString *)PicPath :Cel
+{
+    }
+
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -147,8 +187,9 @@
         detailviewcontroller.sighting = [self.dataController objectInListAtIndex:[self.tableView indexPathForSelectedRow].row];
     }
     else if([[segue identifier] isEqualToString:@"ShowAddSightingView"]){
-        /*AddSightingViewController *addController = (AddSightingViewController *)[[[segue destinationViewController]viewControllers]objectAtIndex:0];
-        addController.delegate = self;*/
+        
+        AddSightingViewController *addController = (AddSightingViewController *)[[[segue destinationViewController]viewControllers]objectAtIndex:0];
+        addController.delegate = self;
         //CameraViewController *CVController = (CameraViewController *)
         
         
@@ -165,14 +206,14 @@
     
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     // Edit the entity name as appropriate.
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Event" inManagedObjectContext:self.managedObjectContext];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Birdv" inManagedObjectContext:self.managedObjectContext];
     [fetchRequest setEntity:entity];
     
     // Set the batch size to a suitable number.
     [fetchRequest setFetchBatchSize:20];
     
     // Edit the sort key as appropriate.
-    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"timeStamp" ascending:NO];
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"date" ascending:NO];
     NSArray *sortDescriptors = @[sortDescriptor];
     
     [fetchRequest setSortDescriptors:sortDescriptors];
@@ -257,11 +298,45 @@
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
 {
     NSManagedObject *object = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    cell.textLabel.text = [[object valueForKey:@"timeStamp"] description];
-}
+    NSString *name = [[object valueForKey:@"name"] description];
+    NSString *location = [[object valueForKey:@"location"] description];
+    NSString *imgPath = [[object valueForKey:@"birdImgPath"] description];
+    [self.dataController addBirdSightingWithName:name location:location birdNamePath:imgPath];
+    
+    [[cell textLabel]setText:name];
+    [[cell detailTextLabel]setText: location];
+    
+    ALAssetsLibraryAssetForURLResultBlock resultblock = ^(ALAsset *myasset)
+    {
+        ALAssetRepresentation *rep = [myasset defaultRepresentation];
+        CGImageRef iref = [rep fullResolutionImage];
+        if (iref) {
+            UIImage *largeimage = [UIImage imageWithCGImage:iref];
+            [[cell imageView]setImage:largeimage];
+        }
+    };
+    
+    //
+    ALAssetsLibraryAccessFailureBlock failureblock  = ^(NSError *myerror)
+    {
+        NSLog(@"booya, cant get image - %@",[myerror localizedDescription]);
+    };
+    
+    if(imgPath && [imgPath length])
+    {
+        NSURL *asseturl = [NSURL URLWithString:imgPath];
+        ALAssetsLibrary* assetslibrary = [[ALAssetsLibrary alloc] init] ;
+        [assetslibrary assetForURL:asseturl
+                       resultBlock:resultblock
+                      failureBlock:failureblock];
+    }
 
+    
+    
+}
 - (IBAction)addbird:(id)sender {
     
+   
     if ([UIImagePickerController isSourceTypeAvailable:
          UIImagePickerControllerSourceTypeCamera])
     {
@@ -274,7 +349,7 @@
         imagePicker.allowsEditing = NO;
         [self presentViewController:imagePicker
                            animated:YES completion:nil];
-        self.newMedia = YES;
+        [self setNewMedia:YES];
     }
     else if ([UIImagePickerController isSourceTypeAvailable:
          UIImagePickerControllerSourceTypeSavedPhotosAlbum])
@@ -288,7 +363,7 @@
         imagePicker.allowsEditing = NO;
         [self presentViewController:imagePicker
                            animated:YES completion:nil];
-        self.newMedia = NO;
+        [self setNewMedia:NO];
     }
     /*AddSightingViewController *addController = [[AddSightingViewController alloc]init];
        addController.delegate = self;
@@ -297,47 +372,6 @@
     //UINavigationController *nv = [UINavigationController ]
  
     
-}
-#pragma mark -
-#pragma mark UIImagePickerControllerDelegate
-
--(void)imagePickerController:(UIImagePickerController *)picker
-didFinishPickingMediaWithInfo:(NSDictionary *)info
-{
-    NSString *mediaType = info[UIImagePickerControllerMediaType];
-    
-    [self dismissViewControllerAnimated:YES completion:nil];
-    
-    if ([mediaType isEqualToString:(NSString *)kUTTypeImage]) {
-        
-        UIImage *image = info[UIImagePickerControllerOriginalImage];
-        
-        _imageView.image = image;
-        if (_newMedia)
-            UIImageWriteToSavedPhotosAlbum(image,
-                                           self,
-                                           @selector(image:finishedSavingWithError:contextInfo:),
-                                           nil);
-    }
-    else if ([mediaType isEqualToString:(NSString *)kUTTypeMovie])
-    {
-        // Code here to support video if enabled
-    }
-}
-
--(void)image:(UIImage *)image
-finishedSavingWithError:(NSError *)error
- contextInfo:(void *)contextInfo
-{
-    if (error) {
-        UIAlertView *alert = [[UIAlertView alloc]
-                              initWithTitle: @"Save failed"
-                              message: @"Failed to save image"
-                              delegate: nil
-                              cancelButtonTitle:@"OK"
-                              otherButtonTitles:nil];
-        [alert show];
-    }
 }
 
 @end

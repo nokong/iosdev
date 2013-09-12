@@ -16,7 +16,7 @@
 
 
 @property BOOL newMedia;
-@property (strong,nonatomic)AddSightingViewController *AddController;
+
 @property (strong,nonatomic)BridSightingDataController *dataController;
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;

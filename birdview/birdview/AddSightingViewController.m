@@ -17,9 +17,11 @@
 @end
 
 @implementation AddSightingViewController
-@synthesize birdNameInput = _birdNameInput;
-@synthesize LocationInput = _LocationInput;
-@synthesize delegate=_delegate;
+@synthesize birdNameInput;
+@synthesize LocationInput;
+@synthesize delegate;
+@synthesize newMedia;
+@synthesize UrlPath;
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
@@ -43,7 +45,15 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
+-(void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    static int first = 1;
+    if(first){
+     [self useCamera];
+        first = 0;
+    }
 
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -53,6 +63,36 @@
     NSLog(@"didFailWithError : %@",error);
     UIAlertView *errorAlert = [[UIAlertView alloc]initWithTitle:@"error" message:@"Failed to Get Your Location" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
     [errorAlert show];
+}
+-(void)useCamera{
+    if ([UIImagePickerController isSourceTypeAvailable:
+         UIImagePickerControllerSourceTypeCamera])
+    {
+        UIImagePickerController *imagePicker =
+        [[UIImagePickerController alloc] init];
+        imagePicker.delegate = self;
+        imagePicker.sourceType =
+        UIImagePickerControllerSourceTypeCamera;
+        imagePicker.mediaTypes = @[(NSString *) kUTTypeImage];
+        imagePicker.allowsEditing = NO;
+        [self presentViewController:imagePicker
+                           animated:NO completion:nil];
+        [self setNewMedia:YES];
+    }
+    else if ([UIImagePickerController isSourceTypeAvailable:
+              UIImagePickerControllerSourceTypeSavedPhotosAlbum])
+    {
+        UIImagePickerController *imagePicker =
+        [[UIImagePickerController alloc] init];
+        imagePicker.delegate = self;
+        imagePicker.sourceType =
+        UIImagePickerControllerSourceTypePhotoLibrary;
+        imagePicker.mediaTypes = @[(NSString *) kUTTypeImage];
+        imagePicker.allowsEditing = NO;
+        [self presentViewController:imagePicker
+                           animated:NO completion:nil];
+        [self setNewMedia:NO];
+    }
 }
 
 -(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations{
@@ -163,10 +203,62 @@
 }*/
 
 - (IBAction)done:(id)sender {
-    [[self delegate]addSightinViewControllerDidFinish:self name:self.birdNameInput.text location:self.LocationInput.text];
+    [[self delegate]addSightinViewControllerDidFinish:self name:self.birdNameInput.text location:self.LocationInput.text birdImgPath:self.UrlPath];
 }
 
 - (IBAction)cancel:(id)sender {
     [[self delegate]addSightinViewControllerDidCancel:self];
 }
+
+#pragma mark -
+#pragma mark UIImagePickerControllerDelegate
+
+-(void)imagePickerController:(UIImagePickerController *)picker
+didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+    NSString *mediaType = info[UIImagePickerControllerMediaType];
+    
+    
+    
+    if ([mediaType isEqualToString:(NSString *)kUTTypeImage]) {
+        
+        UIImage *image = info[UIImagePickerControllerOriginalImage];
+        
+        self.imageview.image = image;
+        
+            ALAssetsLibrary *library = [[ALAssetsLibrary alloc] init];
+        // Request to save the image to camera roll
+        [library writeImageToSavedPhotosAlbum:[image CGImage] orientation:(ALAssetOrientation)[image imageOrientation] completionBlock:^(NSURL *assetURL, NSError *error){
+            if (error) {
+                NSLog(@"error");
+            } else {
+                NSLog(@"url %@", assetURL);
+            }
+         [self setUrlPath:[assetURL absoluteString]];
+        }];
+        
+    
+     if ([mediaType isEqualToString:(NSString *)kUTTypeMovie])
+    {
+        // Code here to support video if enabled
+    }
+    [self dismissViewControllerAnimated:YES completion:^{}];
+    }
+}
+
+-(void)image:(UIImage *)image
+finishedSavingWithError:(NSError *)error
+ contextInfo:(void *)contextInfo
+{
+    if (error) {
+        UIAlertView *alert = [[UIAlertView alloc]
+                              initWithTitle: @"Save failed"
+                              message: @"Failed to save image"
+                              delegate: nil
+                              cancelButtonTitle:@"OK"
+                              otherButtonTitles:nil];
+        [alert show];
+    }
+}
+
 @end

@@ -20,7 +20,7 @@
 
     NSMutableArray *sightingList = [[NSMutableArray alloc]init];
     self.masterBirdSightingList = sightingList;
-    [self addBirdSightingWithName:@"Pigeon" location:@"Everywhere"];
+    //[self addBirdSightingWithName:@"Pigeon" location:@"Everywhere" birdNamePath:@"123456"];
 }
 -(void)setMasterBirdSightingList:(NSMutableArray *)newList{
     if(_masterBirdSightingList != newList){
@@ -41,10 +41,10 @@
 -(BirdSighting *)objectInListAtIndex:(NSUInteger)theIndex{
     return [self.masterBirdSightingList objectAtIndex:theIndex];
 }
--(void)addBirdSightingWithName:(NSString *)inputBirdName location:(NSString *)inputLocation{
+-(void)addBirdSightingWithName:(NSString *)inputBirdName location:(NSString *)inputLocation birdNamePath:(NSString *)inputPath{
     BirdSighting *sighting;
     NSDate *today = [NSDate date];
-    sighting =[[BirdSighting alloc]initWithName:inputBirdName location:inputLocation date:today];
+    sighting =[[BirdSighting alloc]initWithName:inputBirdName location:inputLocation date:today birdImgPath:inputPath];
     [self.masterBirdSightingList addObject:sighting];
 }
 @end

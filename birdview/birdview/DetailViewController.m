@@ -23,6 +23,7 @@
 @synthesize longtitudeLabel = _longtitudeLabel;
 @synthesize latitudeLabel = _latitudeLabel;
 @synthesize dateLabel = _dateLabel;
+@synthesize imageview;
 #pragma mark - Managing the detail item
 
 - (void)setSighting:(BirdSighting *)newSighting
@@ -48,6 +49,34 @@
         self.birdNameLabel.text = theSighting.name;
         self.locationLabel.text = theSighting.location;
         self.dateLabel.text= [formatter stringFromDate:(NSDate *)theSighting.date];
+        NSString *mediaurl = theSighting.birdImgPath;
+        
+        //
+        ALAssetsLibraryAssetForURLResultBlock resultblock = ^(ALAsset *myasset)
+        {
+            ALAssetRepresentation *rep = [myasset defaultRepresentation];
+            CGImageRef iref = [rep fullResolutionImage];
+            if (iref) {
+                UIImage *largeimage = [UIImage imageWithCGImage:iref];
+                [self.imageview setImage:largeimage];
+            }
+        };
+        
+        //
+        ALAssetsLibraryAccessFailureBlock failureblock  = ^(NSError *myerror)
+        {
+            NSLog(@"booya, cant get image - %@",[myerror localizedDescription]);
+        };
+        
+        if(mediaurl && [mediaurl length])
+        {
+            NSURL *asseturl = [NSURL URLWithString:mediaurl];
+            ALAssetsLibrary* assetslibrary = [[ALAssetsLibrary alloc] init] ;
+            [assetslibrary assetForURL:asseturl
+                           resultBlock:resultblock
+                          failureBlock:failureblock];
+        }
+
     }
     
 }

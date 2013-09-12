@@ -13,8 +13,9 @@
 @property(nonatomic,copy)NSString *name;
 @property(nonatomic,copy)NSString *location;
 @property(nonatomic,strong)NSDate *date;
+@property(nonatomic,strong)NSString *birdImgPath;
 
--(id)initWithName:(NSString *)name location:(NSString *)location date:(NSDate *)date;
+-(id)initWithName:(NSString *)name location:(NSString *)location date:(NSDate *)date birdImgPath:(NSString *)birdImgPath;
 
 
 @end

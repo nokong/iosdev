@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <CoreLocation/CoreLocation.h>
+#import <AssetsLibrary/AssetsLibrary.h>
 @class BirdSighting;
 @interface DetailViewController : UITableViewController<CLLocationManagerDelegate>
 
@@ -17,6 +18,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *dateLabel;
 @property (weak, nonatomic) IBOutlet UILabel *latitudeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *longtitudeLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *imageview;
 - (IBAction)getCurrentLocation:(id)sender;
 
 @end

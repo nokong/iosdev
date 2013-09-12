@@ -24,7 +24,7 @@
     
     BridSightingDataController *aDataController = [[BridSightingDataController alloc]init];
     controller.dataController = aDataController;
-    //controller.managedObjectContext = self.managedObjectContext;
+    controller.managedObjectContext = self.managedObjectContext;
     return YES;
 }
 							
