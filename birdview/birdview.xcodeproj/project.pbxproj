@@ -26,6 +26,7 @@
 		72FCB8E517DF0A4700F28E27 /* BridSightingDataController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72FCB8E417DF0A4700F28E27 /* BridSightingDataController.m */; };
 		72FCB8EB17DF248B00F28E27 /* AddSightingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72FCB8EA17DF248B00F28E27 /* AddSightingViewController.m */; };
 		72FCB8ED17DF3A1900F28E27 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72FCB8EC17DF3A1900F28E27 /* CoreLocation.framework */; };
+		8E19065917E1727000101C16 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E19065817E1727000101C16 /* MobileCoreServices.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,6 +59,7 @@
 		72FCB8E917DF248B00F28E27 /* AddSightingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddSightingViewController.h; sourceTree = "<group>"; };
 		72FCB8EA17DF248B00F28E27 /* AddSightingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddSightingViewController.m; sourceTree = "<group>"; };
 		72FCB8EC17DF3A1900F28E27 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		8E19065817E1727000101C16 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +67,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8E19065917E1727000101C16 /* MobileCoreServices.framework in Frameworks */,
 				72FCB8ED17DF3A1900F28E27 /* CoreLocation.framework in Frameworks */,
 				72FCB8B617DF082A00F28E27 /* UIKit.framework in Frameworks */,
 				72FCB8B817DF082A00F28E27 /* Foundation.framework in Frameworks */,
@@ -79,6 +82,7 @@
 		72FCB8A917DF082A00F28E27 = {
 			isa = PBXGroup;
 			children = (
+				8E19065817E1727000101C16 /* MobileCoreServices.framework */,
 				72FCB8EC17DF3A1900F28E27 /* CoreLocation.framework */,
 				72FCB8BD17DF082A00F28E27 /* birdview */,
 				72FCB8B417DF082A00F28E27 /* Frameworks */,

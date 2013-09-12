@@ -9,11 +9,17 @@
 #import <UIKit/UIKit.h>
 
 #import <CoreData/CoreData.h>
+#import <MobileCoreServices/MobileCoreServices.h>
 @class BridSightingDataController;
-@interface MasterViewController : UITableViewController <NSFetchedResultsControllerDelegate>
+@class AddSightingViewController;
+@interface MasterViewController : UITableViewController <NSFetchedResultsControllerDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 
+
+@property BOOL newMedia;
+@property (strong,nonatomic)AddSightingViewController *AddController;
 @property (strong,nonatomic)BridSightingDataController *dataController;
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
+- (IBAction)addbird:(id)sender;
 
 @end

@@ -10,6 +10,8 @@
 #import <CoreLocation/CoreLocation.h>
 @protocol AddSightingControllerDelegate;
 @interface AddSightingViewController : UITableViewController <CLLocationManagerDelegate>
+
+@property (weak, nonatomic) IBOutlet UIImageView *imageview;
 @property (weak, nonatomic) IBOutlet UITextField *birdNameInput;
 @property (weak, nonatomic) IBOutlet UITextField *LocationInput;
 @property (weak,nonatomic)id <AddSightingControllerDelegate> delegate;
